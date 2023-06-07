@@ -1,42 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./activity.css";
 import { BsArrowLeftShort, BsArrowRightShort, BsDot } from "react-icons/bs";
 import { MdGroups, MdGroup, MdPerson } from "react-icons/md";
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+
+
 import img1 from "../../Assets/activities/water-rafting.jpg"
 import img2 from "../../Assets/activities/atv-ride.png"
 import img3 from "../../Assets/activities/hiking.png"
-
-const Data = [
-
-  {
-    id: 1,
-    imgSrc: img1,
-    actTitle: 'Kayak',
-    perPax: "2 per session",
-    price: 'RM80',
-    icon: "MdGroups",
-  },
-
-  {
-    id: 2,
-    imgSrc: img2,
-    actTitle: 'ATV Ride',
-    perPax: "2 per session",
-    price: 'RM80',
-    icon: "MdGroup",
-  },
-
-  {
-    id: 3,
-    imgSrc: img3,
-    actTitle: 'Hiking',
-    perPax: "1 per session",
-    price: 'RM10',
-    icon: "MdPerson",
-  },
-
-]
 
 const iconMap = {
   MdGroups: MdGroups,
@@ -44,7 +20,43 @@ const iconMap = {
   MdPerson: MdPerson,
 };
 
+
 const Activities = () => {
+  const [activities, setActivities] = useState([]);
+
+  useEffect(() => {
+    const dataAPI = async () => {    
+      // Sheet ID
+      const gid = '1160060883';
+      const gsheet = process.env.REACT_APP_SHEET_API;
+
+      const url = `https://docs.google.com/spreadsheets/d/${gsheet}/gviz/tq?tqx=out:json&tq&gid=${gid}`;
+
+      // console.log(url);
+      const response = await fetch(url);
+      const data = await response.text();
+      // const testData = await response.json();
+      // console.log(data);
+
+      const jsonString = data.substring(47).slice(0, -2);
+      const jsonData = JSON.parse(jsonString);
+
+      console.log(jsonData);
+
+      setActivities(jsonData.table.rows);
+
+    };
+
+    dataAPI();
+
+    // console.log(activities);
+
+    // Call the API every 5 minutes
+    const intervalId = setInterval(dataAPI, 5 * 60 * 1000);
+
+    return () => clearInterval(intervalId);
+  }, [])
+
   return (
     <section className="activity section">
       <div className="secContainer container">
@@ -60,18 +72,38 @@ const Activities = () => {
           </div>
         </div>
 
-        <div className="mainContent grid">
-          {
-            Data.map(({ id, imgSrc, actTitle, perPax, price, icon }) => {
+          <Swiper 
+            slidesPerView={2}
+            spaceBetween={20}
+            breakpoints={{
+              320: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              1024: {
+                slidesPerView: 4,
+              },
+          }}>
+            {activities.map((activities, index) => {
+              var activity_id = activities.c[0]?.f || activities.c[0]?.v;
+              var activity_name = activities.c[1]?.f || activities.c[1]?.v;
+              var description = activities.c[2]?.f || activities.c[2]?.v;
+              var per_pax = activities.c[3]?.f || activities.c[3]?.v;
+              var price = activities.c[4]?.f || activities.c[4]?.v;
+              var pic = activities.c[5]?.f || activities.c[5]?.v;
+              var icon = activities.c[6]?.f || activities.c[6]?.v;
               const IconComponent = iconMap[icon];
               return (
+              <SwiperSlide key={index}>
                 <div className="singleActivity">
                   <div className="actImage">
-                    <img src={imgSrc} alt="Image Title" />
+                    <img src={pic} alt="Image Title" />
 
                     <div className="overlayInfo">
-                      <h3>{actTitle}</h3>
-                      <p>{perPax}</p>
+                      <h3>{activity_name}</h3>
+                      <p>{per_pax}</p>
 
                       <BsArrowRightShort className="icon" />
                     </div>
@@ -79,11 +111,11 @@ const Activities = () => {
 
                   <div className="actFooter">
                     <div className="number">
-                      0{id}
+                      0{activity_id}
                     </div>
 
                     <div className="actText flex">
-                      <h6>{actTitle}</h6>
+                      <h6>{activity_name}</h6>
                       <span className="flex">
                         <span className="dot">
                           <BsDot className="icon" />
@@ -93,11 +125,12 @@ const Activities = () => {
                     </div>
                   </div>
                 </div>
-
+              </SwiperSlide>
               )
             })
-          }
-        </div>
+            } 
+          </Swiper>
+
       </div>
     </section>);
 };

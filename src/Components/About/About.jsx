@@ -5,7 +5,7 @@ import icon1 from '../../Assets/hiking.svg';
 import icon2 from '../../Assets/atv.svg';
 import icon3 from '../../Assets/camping.svg';
 
-import video from '../../Assets/videotest.mp4';
+import video from '../../Assets/videochalet.mp4';
 
 const About = () => {
   return (
