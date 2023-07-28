@@ -1,16 +1,15 @@
 import React from "react";
 import "./about.css";
-import ReactPlayer from "react-player"
 
 import icon1 from '../../Assets/hiking.svg';
 import icon2 from '../../Assets/atv.svg';
 import icon3 from '../../Assets/camping.svg';
 
-// import video from '../../Assets/videochalet.mp4';
+import video from '../../Assets/videochalet.mp4';
 
 const About = () => {
   return (
-    <section id="about" className="about section">
+    <section className="about section">
       <div className="secContainer">
         <h2 className="title">
           What do We offer?
@@ -49,8 +48,7 @@ const About = () => {
             </div>
 
             <div className="cardVideo">
-              {/* <video src={video} autoPlay loop muted></video> */}
-              <ReactPlayer url="https://www.facebook.com/chalettanjungtuah/videos/2270166006480919/" playing={true} loop={true} controls={false} width='100%' height='100%' />
+              <video src={video} autoPlay loop muted></video>
             </div>
           </div>
         </div>
