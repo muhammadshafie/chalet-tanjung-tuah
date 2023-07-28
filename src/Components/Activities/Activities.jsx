@@ -5,14 +5,14 @@ import { MdGroups, MdGroup, MdPerson } from "react-icons/md";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from "swiper";
 
 // Import Swiper styles
 import 'swiper/css';
 
-
-import img1 from "../../Assets/activities/water-rafting.jpg"
-import img2 from "../../Assets/activities/atv-ride.png"
-import img3 from "../../Assets/activities/hiking.png"
+import "../../Assets/activities/water-rafting.jpg"
+import "../../Assets/activities/atv-ride.png"
+import "../../Assets/activities/hiking.png"
 
 const iconMap = {
   MdGroups: MdGroups,
@@ -58,7 +58,7 @@ const Activities = () => {
   }, [])
 
   return (
-    <section className="activity section">
+    <section id="activity" className="activity section">
       <div className="secContainer container">
         <div className="secHeader flex">
           <div className="textDiv">
@@ -67,12 +67,21 @@ const Activities = () => {
 
           </div>
           <div className="iconsDiv flex">
-            <BsArrowLeftShort className="icon leftIcon" />
-            <BsArrowRightShort className="icon" />
+            <div className="swiper-button-prev">
+              <BsArrowLeftShort className="icon leftIcon"/>
+            </div>
+            <div className="swiper-button-next">
+              <BsArrowRightShort className="icon"/>
+            </div>
           </div>
         </div>
 
           <Swiper 
+            modules={ [Navigation] }
+            navigation={{
+              prevEl: '.swiper-button-prev',
+              nextEl: '.swiper-button-next'
+            }}
             slidesPerView={2}
             spaceBetween={20}
             breakpoints={{
@@ -99,11 +108,13 @@ const Activities = () => {
               <SwiperSlide key={index}>
                 <div className="singleActivity">
                   <div className="actImage">
-                    <img src={pic} alt="Image Title" />
+                    <img src={pic} alt="" />
 
                     <div className="overlayInfo">
                       <h3>{activity_name}</h3>
+                      <p>{description}</p>
                       <p>{per_pax}</p>
+                      <p>{price}</p>
 
                       <BsArrowRightShort className="icon" />
                     </div>
