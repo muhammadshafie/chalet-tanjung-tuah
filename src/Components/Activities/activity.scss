@@ -331,30 +331,30 @@
 // }
 
 @media screen and (min-width: 1024px) {
-  // .activity {
-  //   padding-top: 8rem;
+  .activity {
+    //   padding-top: 8rem;
 
-  .secContainer {
-    .secHeader {
-      .textDiv {
-        .secTitle {
-          font-size: 2.2rem;
-        }
+    .secContainer {
+      .secHeader {
+        .textDiv {
+          .secTitle {
+            font-size: 2.2rem;
+          }
 
-        p {
-          font-size: 15px;
+          p {
+            font-size: 15px;
+          }
         }
       }
-    }
 
-    .mainContent {
-      grid-template-columns: repeat(4, 1fr);
-      // grid-template-columns: unset;
-      gap: 1.5rem !important;
+      .mainContent {
+        grid-template-columns: repeat(4, 1fr);
+        // grid-template-columns: unset;
+        gap: 1.5rem !important;
+      }
     }
   }
 }
-// }
 // @media screen and (min-width: 2560px) {
 //   .activity {
 //     padding-top: 10rem;

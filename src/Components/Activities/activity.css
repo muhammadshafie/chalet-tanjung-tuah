@@ -263,13 +263,13 @@
   }
 }
 @media screen and (min-width: 1024px) {
-  .secContainer .secHeader .textDiv .secTitle {
+  .activity .secContainer .secHeader .textDiv .secTitle {
     font-size: 2.2rem;
   }
-  .secContainer .secHeader .textDiv p {
+  .activity .secContainer .secHeader .textDiv p {
     font-size: 15px;
   }
-  .secContainer .mainContent {
+  .activity .secContainer .mainContent {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem !important;
   }
