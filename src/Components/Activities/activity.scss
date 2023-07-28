@@ -1,7 +1,7 @@
 /* Color Palletes */
 
 .activity {
-  padding-top: 15rem;
+  // padding-top: 15rem;
   background-color: var(--sectionBg);
   .secContainer {
     .secHeader {
@@ -32,7 +32,7 @@
           font-size: 2.5rem;
           &:hover {
             background: var(--blackColor);
-            column-rule: var(--whiteColor);
+            color: var(--whiteColor);
           }
         }
 
@@ -167,7 +167,6 @@
           }
         }
       }
-
     }
 
     /* Swiper Styles */
@@ -175,7 +174,7 @@
     .swiper-slide {
       padding: 2rem 0;
       gap: 1rem;
-      
+
       .singleActivity {
         background: var(--whiteColor);
         overflow: hidden;
@@ -297,11 +296,11 @@
 }
 
 /* MEDIA QUERIES */
-@media screen and (min-width: 480px) {
-  .activity {
-    padding-top: 10rem;
-  }
-}
+// @media screen and (min-width: 480px) {
+//   .activity {
+//     padding-top: 10rem;
+//   }
+// }
 
 @media screen and (min-width: 556px) {
   .activity {
@@ -325,39 +324,39 @@
   }
 }
 
-@media screen and (min-width: 720px) {
-  .activity {
-    padding-top: 7rem;
-  }
-}
+// @media screen and (min-width: 720px) {
+//   .activity {
+//     padding-top: 7rem;
+//   }
+// }
 
 @media screen and (min-width: 1024px) {
-  .activity {
-    padding-top: 8rem;
+  // .activity {
+  //   padding-top: 8rem;
 
-    .secContainer {
-      .secHeader {
-        .textDiv {
-          .secTitle {
-            font-size: 2.2rem;
-          }
+  .secContainer {
+    .secHeader {
+      .textDiv {
+        .secTitle {
+          font-size: 2.2rem;
+        }
 
-          p {
-            font-size: 15px;
-          }
+        p {
+          font-size: 15px;
         }
       }
+    }
 
-      .mainContent {
-        grid-template-columns: repeat(4, 1fr);
-        // grid-template-columns: unset;
-        gap: 1.5rem !important;
-      }
+    .mainContent {
+      grid-template-columns: repeat(4, 1fr);
+      // grid-template-columns: unset;
+      gap: 1.5rem !important;
     }
   }
 }
-@media screen and (min-width: 2560px) {
-  .activity {
-    padding-top: 10rem;
-  }
-}
+// }
+// @media screen and (min-width: 2560px) {
+//   .activity {
+//     padding-top: 10rem;
+//   }
+// }

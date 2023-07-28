@@ -7,7 +7,7 @@ const Home = () => {
       <div className="secContainer container">
         <div className="homeText">
           <h1 className="title">
-            Chalet Bertemakan <br/> Dinding Kelarai
+            Chalet Bertemakan <br /> Dinding Kelarai
           </h1>
 
           <p className="subTitle">Leave All Behind and Enjoy The Nature!</p>
@@ -17,7 +17,7 @@ const Home = () => {
           </button>
         </div>
 
-        <div className="homeCard grid">
+        {/* <div className="homeCard grid">
           <div className="locationDiv">
             <label htmlFor="location">Location</label>
             <input type="text" placeholder="Dream Staycation" />
@@ -34,7 +34,7 @@ const Home = () => {
           </div>
 
           <button className="btn">Search</button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

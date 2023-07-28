@@ -1,6 +1,5 @@
 /* Color Palletes */
 .activity {
-  padding-top: 15rem;
   background-color: var(--sectionBg);
 }
 .activity .secContainer {
@@ -32,8 +31,7 @@
 }
 .activity .secContainer .secHeader .iconsDiv .icon:hover {
   background: var(--blackColor);
-  -moz-column-rule: var(--whiteColor);
-       column-rule: var(--whiteColor);
+  color: var(--whiteColor);
 }
 .activity .secContainer .secHeader .iconsDiv .leftIcon {
   background: var(--blackColor);
@@ -249,11 +247,6 @@
 }
 
 /* MEDIA QUERIES */
-@media screen and (min-width: 480px) {
-  .activity {
-    padding-top: 10rem;
-  }
-}
 @media screen and (min-width: 556px) {
   .activity .secContainer .secHeader {
     width: 100%;
@@ -269,28 +262,15 @@
     justify-content: flex-end;
   }
 }
-@media screen and (min-width: 720px) {
-  .activity {
-    padding-top: 7rem;
-  }
-}
 @media screen and (min-width: 1024px) {
-  .activity {
-    padding-top: 8rem;
-  }
-  .activity .secContainer .secHeader .textDiv .secTitle {
+  .secContainer .secHeader .textDiv .secTitle {
     font-size: 2.2rem;
   }
-  .activity .secContainer .secHeader .textDiv p {
+  .secContainer .secHeader .textDiv p {
     font-size: 15px;
   }
-  .activity .secContainer .mainContent {
+  .secContainer .mainContent {
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem !important;
-  }
-}
-@media screen and (min-width: 2560px) {
-  .activity {
-    padding-top: 10rem;
   }
 }/*# sourceMappingURL=activity.css.map */
